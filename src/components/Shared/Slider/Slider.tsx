@@ -19,7 +19,7 @@ export const Slider: React.FC<OwnProps> = (props) => {
         <input
           max={max}
           min={min}
-          className={`slider w-full h-1 bg-inactive rounded-lg appearance-none cursor-pointer focus:outline-none range-sm`}
+          className={`slider z-20 relative w-full h-1 bg-transparent rounded-lg appearance-none cursor-pointer focus:outline-none`}
           type="range"
           name={name}
           id={id}
@@ -29,8 +29,15 @@ export const Slider: React.FC<OwnProps> = (props) => {
           }
         />
 
+        {/* main track*/}
         <div
-          className={`block absolute  bg-primary h-1  start-0 bottom-[5px] `}
+          className={`block z-10 absolute  bg-inactive h-1  start-0 bottom-[5px] `}
+          style={{ width: `100%` }}
+        ></div>
+
+        {/* following track*/}
+        <div
+          className={`block z-10 absolute  bg-primary h-1  start-0 bottom-[5px] `}
           style={{ width: `${((amount - min) * 100) / (max - min)}%` }}
         ></div>
 
