@@ -1,7 +1,9 @@
+import { WorkoutForm } from "../../components/Workouts/WorkoutForm";
+
 export const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <section>
+      <WorkoutForm />
+    </section>
   );
 };
