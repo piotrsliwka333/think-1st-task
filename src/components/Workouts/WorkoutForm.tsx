@@ -74,13 +74,8 @@ export const WorkoutForm: React.FC = () => {
     setEmailError(null);
   };
 
-  const handleChangeAge = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const { target } = event;
-    const { value } = target;
-
-    setAge(+value);
+  const handleChangeAge = (amount: number): void => {
+    setAge(amount);
   };
 
   const handleChangeFile = (file: File | null): void => {
@@ -220,6 +215,7 @@ export const WorkoutForm: React.FC = () => {
         <TextField
           className="mb-3"
           label="Email Address"
+          type="email"
           name="emailAddress"
           id="emailAddress"
           helperText={emailError}
@@ -236,18 +232,16 @@ export const WorkoutForm: React.FC = () => {
           className="mb-12"
           label="Age"
           value={age}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            handleChangeAge(event)
-          }
-          id={"age"}
-          name={"age"}
+          onChange={(amount: number) => handleChangeAge(amount)}
+          id="age"
+          name="age"
         />
 
         <UploadFile
-          id={"photo"}
-          label={"Photo"}
+          id="photo"
+          label="Photo"
           value={file}
-          name={"photo"}
+          name="photo"
           error={!!fileError}
           helperText={fileError}
           onChange={(file: File | null) => handleChangeFile(file)}
