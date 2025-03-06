@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-primary: #f0eaf8;
+    --background-secondary: #171717;
+    --text-primary: #000853;
+    --text-secondary: #898da9;
+    --primary: #761be4;
+    --btn-hover: #6a19cd;
+    --inactive: #cbb6e5;
+    --error: #ed4545;
+    --background-error: #feecec;
+  }
+
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background-primary);
+}
+
+.slider {
+  @apply [&::-webkit-slider-thumb]:appearance-none
+  [&::-webkit-slider-thumb]:h-[20px]
+  [&::-webkit-slider-thumb]:w-[20px]
+  [&::-webkit-slider-thumb]:bg-primary
+  [&::-webkit-slider-thumb]:rounded-full;
+}
+
+.tooltip:after,
+.tooltip:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  @apply translate-x-[-50%];
+}
+
+.tooltip:after {
+  @apply border-t-transparent border-r-transparent border-b-white border-l-transparent border-[6px] bottom-full;
+}
+
+/* this border color controlls the outside, thin border */
+.tooltip:before {
+  @apply border-t-transparent border-r-transparent border-b-inactive border-l-transparent border-[7.5px] bottom-full;
+}
